@@ -2,6 +2,7 @@ apiVersion: krew.googlecontainertools.github.com/v1alpha2
 kind: Plugin
 metadata:
   name: kyverno
+  
 spec:
   version: {{ .TagName }}
   homepage: https://github.com/kyverno/kyverno
@@ -10,6 +11,7 @@ spec:
         matchLabels:
           os: linux
           arch: amd64
+          
       {{addURIAndSha "https://github.com/kyverno/kyverno/releases/download/{{ .TagName }}/kyverno-cli_{{ .TagName }}_linux_x86_64.tar.gz" .TagName | indent 6 }}
       files:
         - from: kyverno
